@@ -1,0 +1,53 @@
+{
+  "name": "chart-supplements",
+  "version": "0.0.0",
+  "description": "Fetch chart supplements for airports",
+  "main": "index.js",
+  "repository": "fdesjardins/chart-supplements",
+  "author": {
+    "name": "Forrest Desjardins",
+    "email": "desjardinsfg@gmail.com",
+    "url": "github.com/fdesjardins"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "eslint *.js && nyc ./node_modules/.bin/mocha --opts mocha.opts test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "charts",
+    "airports",
+    "aviation",
+    "supplements",
+    "chart supplements",
+    "faa",
+    "api",
+    "documents"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "cheerio": "^0.22.0",
+    "request": "^2.75.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.14",
+    "eslint": "^3.6.0",
+    "eslint-config-standard": "^6.0.1",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "mocha": "^3.0.2",
+    "nyc": "^8.3.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}

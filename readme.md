@@ -4,7 +4,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![Coverage][coveralls-image]][coveralls-url]
 
-Fetch airport chart supplements for airports
+Fetch the latest chart supplements information for airports
 
 ## Installation
 
@@ -15,9 +15,48 @@ $ npm install --save chart-supplements
 ## Usage
 
 ```js
-chartSupplements(['PADK', 'PADU']).then(results => {
-  console.log(results)
+chartSupplements.list(['PANC', 'PADK']).then(results => {
+  console.log(JSON.stringify(results, null, 2))
 })
+```
+
+### Output
+
+```
+[
+  {
+    "ident": "ANC (PANC)",
+    "city": "ANCHORAGE",
+    "state": "AK",
+    "airport": "TED STEVENS ANCHORAGE INTL",
+    "navAid": "",
+    "chart": "ANCHORAGE",
+    "volBackPages": {
+      "name": "AK (PDF)",
+      "url": "http://aeronav.faa.gov/afd/15sep2016/AK_rear_15sep2016.pdf"
+    },
+    "airportNavAidListing": {
+      "name": "ak_45_15SEP2016 (PDF)",
+      "url": "http://aeronav.faa.gov/afd/15sep2016/ak_45_15SEP2016.pdf"
+    }
+  },
+  {
+    "ident": "ADK (PADK)",
+    "city": "ADAK ISLAND",
+    "state": "AK",
+    "airport": "ADAK",
+    "navAid": "",
+    "chart": "W ALEUTIAN ISLS",
+    "volBackPages": {
+      "name": "AK (PDF)",
+      "url": "http://aeronav.faa.gov/afd/15sep2016/AK_rear_15sep2016.pdf"
+    },
+    "airportNavAidListing": {
+      "name": "ak_32_15SEP2016 (PDF)",
+      "url": "http://aeronav.faa.gov/afd/15sep2016/ak_32_15SEP2016.pdf"
+    }
+  }
+]
 ```
 
 ## API

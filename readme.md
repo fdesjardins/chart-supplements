@@ -61,7 +61,7 @@ chartSupplements.list(['PANC', 'PADK']).then(results => {
 
 ## API
 
-### `chartSupplements.(icaos)`
+### `chartSupplements(icaos)`
 ### `chartSupplements.list(icaos)`
 
 #### `icaos`

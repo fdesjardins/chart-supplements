@@ -16,7 +16,7 @@ chartSupplements.list = (icaos, options = {}) => {
 }
 
 const listOne = (icao) => {
-  return request(`https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/results/?cycle=1610&ident=${icao}&navaid=`)
+  return request(`https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/results/?cycle=1612&ident=${icao}&navaid=`)
     .then(res => parse(res.body))
 }
 

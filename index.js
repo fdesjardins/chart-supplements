@@ -15,14 +15,14 @@ chartSupplements.list = (icaos, options = {}) => {
   return listOne(icaos)
 }
 
-const fetchCurrentCycle = request('https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/')
+const fetchCurrentCycle = chartSupplements.fetchCurrentCycle = () => request('https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/')
   .then(res => {
     const $ = cheerio.load(res.body)
     return $('select#cycle > option:contains(Current)').val()
   })
 
 const listOne = (icao) => {
-  return fetchCurrentCycle.then(searchCycle => {
+  return fetchCurrentCycle().then(searchCycle => {
     return request(`https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/results/?cycle=${searchCycle}&ident=${icao}&navaid=`)
       .then(res => parse(res.body))
   })

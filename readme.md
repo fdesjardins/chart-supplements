@@ -72,6 +72,8 @@ One of the following:
 - a single ICAO code
 - an array of ICAO codes
 
+### `chartSupplements.fetchCurrentCycle()`
+
 ## License
 
 MIT © [Forrest Desjardins](https://github.com/fdesjardins)

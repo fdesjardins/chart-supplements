@@ -33,11 +33,11 @@ chartSupplements.list(['PANC', 'PADK']).then(results => {
     "chart": "ANCHORAGE",
     "volBackPages": {
       "name": "AK (PDF)",
-      "url": "http://aeronav.faa.gov/afd/15sep2016/AK_rear_15sep2016.pdf"
+      "url": "http://aeronav.faa.gov/afd/02mar2017/AK_rear_02mar2017.pdf"
     },
     "airportNavAidListing": {
-      "name": "ak_45_15SEP2016 (PDF)",
-      "url": "http://aeronav.faa.gov/afd/15sep2016/ak_45_15SEP2016.pdf"
+      "name": "ak_45_02MAR2017 (PDF)",
+      "url": "http://aeronav.faa.gov/afd/02mar2017/ak_45_02MAR2017.pdf"
     }
   },
   {
@@ -49,11 +49,11 @@ chartSupplements.list(['PANC', 'PADK']).then(results => {
     "chart": "W ALEUTIAN ISLS",
     "volBackPages": {
       "name": "AK (PDF)",
-      "url": "http://aeronav.faa.gov/afd/15sep2016/AK_rear_15sep2016.pdf"
+      "url": "http://aeronav.faa.gov/afd/02mar2017/AK_rear_02mar2017.pdf"
     },
     "airportNavAidListing": {
-      "name": "ak_32_15SEP2016 (PDF)",
-      "url": "http://aeronav.faa.gov/afd/15sep2016/ak_32_15SEP2016.pdf"
+      "name": "ak_32_02MAR2017 (PDF)",
+      "url": "http://aeronav.faa.gov/afd/02mar2017/ak_32_02MAR2017.pdf"
     }
   }
 ]

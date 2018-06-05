@@ -1,6 +1,6 @@
 {
   "name": "chart-supplements",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Fetch chart supplements for airports",
   "main": "index.js",
   "repository": "fdesjardins/chart-supplements",

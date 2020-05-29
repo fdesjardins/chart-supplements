@@ -1,13 +1,18 @@
-const Promise = require('bluebird')
-const request = Promise.promisify(require('request'))
+const superagent = require('superagent')
 const cheerio = require('cheerio')
 
-// Provide a shortcut to the list method
+const BASE_URL = 'https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/'
+
+/**
+ * Provide a shortcut to the list method
+ */
 const chartSupplements = module.exports = (icaos, options = {}) => {
   return chartSupplements.list(icaos, options)
 }
 
-// Main listing method; accepts one or more ICAO codes
+/**
+ * Main listing method; accepts one or more ICAO codes
+ */
 chartSupplements.list = (icaos, options = {}) => {
   if (Array.isArray(icaos)) {
     return Promise.all(icaos.map(listOne))
@@ -15,20 +20,28 @@ chartSupplements.list = (icaos, options = {}) => {
   return listOne(icaos)
 }
 
-const fetchCurrentCycle = chartSupplements.fetchCurrentCycle = () => request('https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/')
+/**
+ * Determine the current documents cycle number
+ */
+const fetchCurrentCycle = chartSupplements.fetchCurrentCycle = () => superagent.get(BASE_URL)
   .then(res => {
-    const $ = cheerio.load(res.body)
+    const $ = cheerio.load(res.text)
     return $('select#cycle > option:contains(Current)').val()
   })
 
+/**
+ * Fetch chart supplements for a single ICAO code
+ */
 const listOne = (icao) => {
   return fetchCurrentCycle().then(searchCycle => {
-    return request(`https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/results/?cycle=${searchCycle}&ident=${icao}&navaid=`)
-      .then(res => parse(res.body))
+    return superagent.get(`${BASE_URL}results/?cycle=${searchCycle}&ident=${icao}&navaid=`)
+      .then(res => parse(res.text))
   })
 }
 
-// Parse the response HTML
+/**
+ * Parse the documents out of the response HTML
+ */
 const parse = (html) => {
   const $ = cheerio.load(html)
   const $results = $('#resultsTable')

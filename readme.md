@@ -22,7 +22,7 @@ chartSupplements.list(['PANC', 'PADK']).then(results => {
 
 ### Output
 
-```
+```json
 [
   {
     "ident": "ANC (PANC)",

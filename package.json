@@ -43,8 +43,14 @@
       "text"
     ]
   },
+  "mocha": {
+    "ignore": [
+      "node_modules/**/*.js"
+    ],
+    "timeout": 30000
+  },
   "repository": "fdesjardins/chart-supplements",
   "scripts": {
-    "test": "eslint *.js && nyc mocha --opts mocha.opts test.js"
+    "test": "eslint *.js && nyc mocha test.js"
   }
 }

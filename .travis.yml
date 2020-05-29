@@ -1,7 +1,10 @@
 sudo: false
 language: node_js
 node_js:
-  - 'stable'
+  - node
+  - lts/*
+  - 10
+  - 8
 script: 'npm test'
 after_script:
   - 'cat coverage/lcov.info | ./node_modules/.bin/coveralls'
